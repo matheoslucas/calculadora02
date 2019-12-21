@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace calculadora
@@ -22,21 +15,7 @@ namespace calculadora
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            if (txtPantalla.Text == "")
-            {
-                txtPantalla.Text = "1";
-
-
-
-            }
-            else
-            {
-                txtPantalla.Text = txtPantalla.Text + "1";
-
-            }
-               
-              
-            
+            txtPantalla.Text = txtPantalla.Text + "1";
         }
 
         private void btn2_Click(object sender, EventArgs e)
@@ -44,30 +23,36 @@ namespace calculadora
             if (txtPantalla.Text == "")
             {
                 txtPantalla.Text = "2";
-
-
-
             }
             else
             {
                 txtPantalla.Text = txtPantalla.Text + "2";
-
             }
         }
 
         private void btn3_Click(object sender, EventArgs e)
         {
+            //Para ajudar a relembrar escopo de variaveis.
+            string name = "Lucas";
             if (txtPantalla.Text == "")
             {
                 txtPantalla.Text = "3";
 
+                if (true)
+                {
 
+                    if (true)
+                    {
+                        name = "Ivan";
+                    }
+                }
 
+                name = "Ivan";
             }
             else
             {
                 txtPantalla.Text = txtPantalla.Text + "3";
-
+                name = "Isa";
             }
         }
 
@@ -76,14 +61,10 @@ namespace calculadora
             if (txtPantalla.Text == "")
             {
                 txtPantalla.Text = "4";
-
-
-
             }
             else
             {
                 txtPantalla.Text = txtPantalla.Text + "4";
-
             }
         }
 
@@ -216,13 +197,21 @@ namespace calculadora
 
         private void btn_igual_Click(object sender, EventArgs e)
         {
-            valor2 = Convert.ToDouble(txtPantalla.Text);
-            switch(op)
+            if (txtPantalla.Text != "")
             {
-                case "+": txtPantalla.Text = Convert.ToString(valor1 + valor2); break;
-                case "-": txtPantalla.Text = Convert.ToString(valor1 - valor2); break;
-                case "*": txtPantalla.Text = Convert.ToString(valor1 * valor2); break;
-                case "/": txtPantalla.Text = Convert.ToString(valor1 / valor2); break;
+                valor2 = Convert.ToDouble(txtPantalla.Text);
+                switch (op)
+                {
+                    case "+": txtPantalla.Text = Convert.ToString(valor1 + valor2); break;
+                    case "-": txtPantalla.Text = Convert.ToString(valor1 - valor2); break;
+                    case "*": txtPantalla.Text = Convert.ToString(valor1 * valor2); break;
+                    case "/": txtPantalla.Text = Convert.ToString(valor1 / valor2); break;
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("não tem nada para ser executado");
             }
         }
 
@@ -233,7 +222,7 @@ namespace calculadora
 
         private void txtPantalla_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(char.IsLetter(e.KeyChar))
+            if (char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
 
@@ -256,5 +245,5 @@ namespace calculadora
             }
         }
     }
-    }
+}
 
