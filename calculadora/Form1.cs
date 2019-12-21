@@ -163,7 +163,6 @@ namespace calculadora
             else
             {
                 txtPantalla.Text = txtPantalla.Text + "9";
-
             }
 
         }
